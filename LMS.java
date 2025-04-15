@@ -167,6 +167,7 @@ import java.util.Scanner;
             System.out.println("2.Add Student");
             System.out.println("3.Borrow Book");
             System.out.println("4.Return Book");
+            System.out.println("5.Check number of copies");
             System.out.println("Enter choice : ");
             int ch=sc.nextInt();
 
@@ -217,6 +218,13 @@ import java.util.Scanner;
                     else
                     System.out.println("Invalid detail(s)");
                     break;
+
+            case 5:
+                System.out.println("Enter BookID : ");
+                int BID=sc.nextInt();
+                Book b=library.findBookById(BID);
+                System.out.println("Number of copies left : "+b.getCopies());
+                break;                
 
             default:
                 System.out.println("Invalid choice");
