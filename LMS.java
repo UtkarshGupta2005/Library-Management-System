@@ -167,7 +167,6 @@ import java.util.Scanner;
             System.out.println("2.Add Student");
             System.out.println("3.Borrow Book");
             System.out.println("4.Return Book");
-            System.out.println("5.Exit");
             System.out.println("Enter choice : ");
             int ch=sc.nextInt();
 
