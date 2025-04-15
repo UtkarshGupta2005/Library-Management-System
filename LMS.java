@@ -150,6 +150,23 @@ import java.util.Scanner;
             }
             return null;
         }
+
+        public static void display(int bookID) {
+            boolean found=false;
+            for(checkOut c:checkOuts) {
+                if(c.getBook().getBookId()==bookID) {
+                    Student s=c.getStud();
+                    System.out.println("Student ID : "+s.getId());
+                    System.out.println("Name : "+s.studentName());
+                    System.out.println("Branch : "+s.getBranch());
+                    System.out.println("Year : "+s.getYear());
+                    System.out.println("Borrowed for : "+c.getDays()+" days");
+                    found=true;
+                }
+            }
+            if(!found)
+            System.out.println("Book not issued");
+        }
     }
 
     public class LMS {
@@ -168,6 +185,7 @@ import java.util.Scanner;
             System.out.println("3.Borrow Book");
             System.out.println("4.Return Book");
             System.out.println("5.Check number of copies");
+            System.out.println("6.Details of student");
             System.out.println("Enter choice : ");
             int ch=sc.nextInt();
 
@@ -225,6 +243,12 @@ import java.util.Scanner;
                 Book b=library.findBookById(BID);
                 System.out.println("Number of copies left : "+b.getCopies());
                 break;                
+            
+            case 6:
+                System.out.println("Enter BookID : ");
+                int ID=sc.nextInt();
+                Library.display(ID);
+                break;
 
             default:
                 System.out.println("Invalid choice");
